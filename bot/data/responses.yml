@@ -1,0 +1,22 @@
+version: "3.0"
+responses:
+  utter_pig/zw:
+    - text: 初步诊断该症状为猪瘟
+  utter_pig/zktj:
+    - text: 初步诊断该症状为猪口蹄疾
+  utter_pig/zdb:
+    - text: 初步诊断该症状为猪丹毒
+  utter_pig/ganmao:
+    - text: 初步诊断该症状为感冒
+  utter_pig/bianmi:
+    - text: 初步诊断该症状为便秘
+  utter_pig/fuxie:
+    - text: 初步诊断该症状为腹泻
+  utter_pig/yaxiaosuanzhongdu:
+    - text: 初步诊断该症状为亚硝酸中毒
+  utter_pig/shiyanzhongdu:
+    - text: 初步诊断该症状为食盐中毒
+  utter_pig/zhuqichuanbing:
+    - text: 初步诊断该症状为猪气喘病
+  utter_pig/poshangfeng:
+    - text: 初步诊断该症状为破伤风

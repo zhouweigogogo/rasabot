@@ -1,0 +1,55 @@
+version: "3.0"
+stories:
+#  - story: 表格填写错误更改后继续查询
+#    steps:
+#      - intent: diagnose_pig
+#      - action: pig_form
+#      - active_loop: pig_form # 激活表单
+#      - active_loop: null
+#      - action: action_ask_confirm # 可以在这里打上一个检查点
+#      # 表格填写错误更改后继续查询
+#      - intent: deny
+#      - action: ask_slot_then_change
+#      - slot_was_set:
+#          - change: true
+#      - action: action_ask_confirm_then_no
+  - story: 表格填写错误更改后停止查询
+    steps:
+      - intent: diagnose_pig
+      - action: pig_form
+      - active_loop: pig_form # 激活表单
+      - active_loop: null
+      - action: action_ask_confirm # 可以在这里打上一个检查点
+      - intent: deny
+#      - action: ask_slot_then_change
+#      - slot_was_set:
+#          - change: false
+      - action: action_ask_confirm_then_no
+  # 疾病查询成功
+  - story: pig form find true
+    steps:
+      - intent: diagnose_pig
+      - action: pig_form
+      - active_loop: pig_form
+      - active_loop: null
+      - action: action_ask_confirm
+      - intent: affirm
+      - action: utter_ask_confirm_then_yes
+      - action: action_diagnose_pig
+      - slot_was_set:
+          - api_succeed: true
+      - action: action_api_succeed_true
+  # 疾病查询失败
+  - story: pig form find false
+    steps:
+      - intent: diagnose_pig
+      - action: pig_form
+      - active_loop: pig_form
+      - active_loop: null
+      - action: action_ask_confirm
+      - intent: affirm
+      - action: utter_ask_confirm_then_yes
+      - action: action_diagnose_pig
+      - slot_was_set:
+          - api_succeed: false
+      - action: action_api_succeed_false

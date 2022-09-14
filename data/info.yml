@@ -1,0 +1,42 @@
+version: "3.0"
+nlu:
+  - intent: info_tiwen
+    examples: |
+      - [体温升高](tiwen)
+      - [体温降低](tiwen)
+      - [体温正常](tiwen)
+  - intent: info_pifu
+    examples: |
+      - [皮肤正常](pifu)
+      - [皮肤潮红](pifu)
+      - [皮肤红肿](pifu)
+      - [皮肤暗沉](pifu)
+      - [皮肤有红斑](pifu)
+      - [皮肤有紫斑](pifu)
+      - [皮肤发白](pifu)
+      - [皮肤出血](pifu)
+  - intent: info_maose
+    examples: |
+      - [毛色正常](maose)
+      - [毛色暗沉](maose)
+      - [毛色鲜亮](maose)
+  - intent: info_huxi
+    examples: |
+      - [呼吸急促](huxi)
+      - [呼吸正常](huxi)
+      - [呼吸较慢](huxi)
+  - intent: info_paixie
+    examples: |
+      - [便秘](paixie)
+      - [腹泻](paixie)
+      - [正常](paixie)
+  - intent: info_fenbian
+    examples: |
+      - [粪便较稀](fenbian)
+      - [粪便正常](fenbian)
+      - [粪便较硬](fenbian)
+  - intent: info_jingshen
+    examples: |
+      - [精神亢奋](jingshen)
+      - [精神低沉](jingshen)
+      - [精神正常](jingshen)

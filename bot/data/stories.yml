@@ -1,0 +1,39 @@
+version: "3.0"
+stories:
+  - story: say goodbye_hi
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+  - story: help_find_diseases
+    steps:
+      - intent: ask_for_help
+      - action: symptoms_form
+      - active_loop: symptoms_form
+  - story: hello
+    steps:
+      - intent: greet
+      - action: utter_greet
+  - story: byebye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+#  - story: say thanks_hi
+#    steps:
+#      - intent: thanks
+#      - action: utter_thanks
+#  - story: cando_hi
+#    steps:
+#      - intent: what_can_you_do
+#      - action: utter_cando
+#  - story: cando1_hi
+#    steps:
+#      - intent: find_yimiao
+#      - action: utter_find_yimiao
+#  - story: cando2_hi
+#    steps:
+#      - intent: find_yy
+#      - action: utter_find_yy
+#  - story: cando3_hi
+#    steps:
+#      - intent: find_yyy
+#      - action: utter_find_yyy

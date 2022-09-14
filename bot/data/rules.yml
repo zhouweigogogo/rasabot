@@ -1,0 +1,22 @@
+version: "3.0"
+rules:
+  - rule: activate symptoms form
+    steps:
+      - intent: ask_for_help
+      - action: symptoms_form
+      - active_loop: symptoms_form
+  - rule: Submit form
+    condition:
+      - active_loop: symptoms_form
+    steps:
+      - action: symptoms_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+#      - action: find_answer
+      - action: utter_zhuwen
+  - rule: say thanks
+    steps:
+      - intent: thanks
+      - action: utter_thanks
+

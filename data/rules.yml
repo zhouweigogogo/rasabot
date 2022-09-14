@@ -1,0 +1,35 @@
+version: "3.0"
+rules:
+#  - rule: 激活表单
+#    steps:
+#      - intent: diagnose_pig
+#      - action: pig_form
+  - rule: 打招呼
+    steps:
+      - intent: greet
+      - action: utter_greet
+  - rule: faq
+    steps:
+      - intent: faq
+      - action: utter_faq
+#  - rule: 更改表单的值
+#    steps:
+#      - intent: ask_slot_then_change
+#      - action: action_ask_slot_then_change
+# 询问客户称呼
+#  - rule: ask_name
+#    steps:
+#      - intent: ask_name
+#      - action: utter_name
+  - rule: 重新说一次
+    steps:
+      - intent: nlu_fallback
+      - action: utter_ask_rephrase
+  - rule: 拜拜
+    steps:
+      - intent: goodbye
+      - action: action_goodbye
+  - rule: 重启对话
+    steps:
+      - intent: restart_conversation
+      - action: action_restart_conversation

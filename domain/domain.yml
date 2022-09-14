@@ -1,0 +1,132 @@
+version: '3.0'
+session_config:
+  session_expiration_time: 10
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- faq
+- info_tiwen
+- info_pifu
+- info_maose
+- info_huxi
+- info_paixie
+- info_fenbian
+- info_jingshen
+- restart_conversation
+- diagnose_pig
+entities:
+- tiwen
+- pifu
+- maose
+- huxi
+- paixie
+- fenbian
+- jingshen
+slots:
+  api_succeed:
+    type: bool
+    influence_conversation: true
+    mappings:
+    - type: custom
+  tiwen:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: tiwen
+  pifu:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: pifu
+  maose:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: maose
+  huxi:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: huxi
+  paixie:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: paixie
+  fenbian:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: fenbian
+  jingshen:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: jingshen
+responses:
+  utter_greet:
+  - text: 您好，欢迎使用 Rasa 生猪疾病对话 系统。可以尝试对我说：“诊断猪类疾病”，快试试吧！
+  utter_goodbye:
+  - text: 再见！感谢您的使用！
+  utter_ask_tiwen:
+  - text: 患猪的体温大约多少？请输入“体温正常”（38度到39.5度左右）、“体温过高”（40度以上）、“体温偏低”（38度以下）
+  utter_ask_pifu:
+  - text: 患猪的皮肤状况怎样？比如“皮肤正常”、“皮肤潮红”等
+  utter_ask_maose:
+  - text: 患猪的毛色状况怎样？比如“毛色正常”、“毛色暗沉”等
+  utter_ask_huxi:
+  - text: 患猪的呼吸状况怎样？比如“呼吸正常”、“呼吸急促”等
+  utter_ask_paixie:
+  - text: 患猪的排泄状况怎样？比如“正常”、“便秘”等
+  utter_ask_fenbian:
+  - text: 患猪的粪便状况怎样？比如“粪便正常”、“粪便较硬”等
+  utter_ask_jingshen:
+  - text: 患猪的精神状况怎样？比如“精神正常”、“精神亢奋”等
+  utter_ask_confirm_then_no:
+  - text: 好的！对话取消，欢迎再次光临！
+  utter_ask_confirm_then_yes:
+  - text: 好的，正在进行诊断！请稍候！
+  utter_api_succeed_true:
+  - text: 诊断成功
+  utter_api_succeed_false:
+  - text: 诊断失败，机器人无法识别！
+  utter_default:
+  - text: 系统不明白您说的话！请重试！
+  utter_ask_rephrase:
+  - text: 抱歉系统没能明白您的话，请您重新表述一次; 或输入"restart"重启对话
+actions:
+- action_goodbye
+- action_diagnose_pig
+- action_diagnose_form_submit
+- action_ask_confirm
+- action_restart_conversation
+- action_ask_confirm_then_no
+- action_api_succeed_true
+- action_api_succeed_false
+- utter_greet
+- utter_goodbye
+- utter_ask_confirm_then_no
+- utter_ask_confirm_then_yes
+- utter_api_succeed_true
+- utter_api_succeed_false
+- utter_ask_rephrase
+forms:
+  pig_form:
+    required_slots:
+    - tiwen
+    - pifu
+    - maose
+    - huxi
+    - paixie
+    - fenbian
+    - jingshen
